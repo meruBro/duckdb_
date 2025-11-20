@@ -20,7 +20,7 @@ with tab1:
             try:
                 sql = """
                     SELECT c.custid, c.name, b.bookname, o.orderdate, o.saleprice
-                    FROM Customer c
+                    FROM customer c
                     JOIN Orders o ON c.custid = o.custid
                     JOIN Book b ON b.bookid = o.bookid
                     WHERE c.name LIKE ?
@@ -107,4 +107,5 @@ with tab3:
             else:
                 st.error("모든 정보를 올바르게 입력해야 합니다.")
         except Exception as e:
+
             st.error(f"신규 고객 등록/주문 에러: {str(e)}")
